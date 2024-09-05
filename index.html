@@ -13,6 +13,13 @@
             <h1>My Library</h1>
         </div>
         <div id="content">
+            <div class="data">
+                <input type="text" id="name" placeholder="Enter name">
+                <input type="text" id="author" placeholder="Enter Author's name" >
+                <input type="number" id="pages" placeholder="Pages" >
+                <input type="text" id="status" placeholder="read or not">
+                <button>Add</button>
+            </div>
             <table bgcolor="black" width="500">
                 <tr bgcolor="gray">
                     <th width="100">ID</th>
@@ -20,6 +27,7 @@
                     <th width="100">Author</th>
                     <th width="100">Pages</th>
                     <th width="100">Status</th>
+                    <th width="100">Action</th>
                 </tr>
                 <tr bgcolor="lightgrey" align="center">
                     <td>1</td>
@@ -27,6 +35,7 @@
                     <td>Harper Lee</td>
                     <td>295</td>
                     <td>not read</td>
+                    <td><button class="delBtn">Remove</button></td>
                 </tr>
             </table>
         </div>
