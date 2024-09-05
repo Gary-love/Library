@@ -1,4 +1,5 @@
-let btnAdd =document.querySelector("button")
+let btnAdd =document.querySelector(".submit")
+let button=document.querySelector(".add")
 let table = document.querySelector("table")
 let nameInput=document.querySelector("#name")
 let authorInput=document.querySelector("#author")
@@ -45,4 +46,10 @@ btnAdd.addEventListener("click", ()=>{
         table.innerHTML+=template
         addBookToLibrary(name,author,pages,status)
         console.log(myLibrary)
+})
+button.addEventListener("click",()=>{
+    document.querySelector(".popup").style.display="flex"
+})
+document.querySelector(".close").addEventListener("click",()=>{
+    document.querySelector(".popup").style.display="none"
 })
