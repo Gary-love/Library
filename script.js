@@ -75,6 +75,7 @@ btnSub.addEventListener("click", ()=>{
 })
 button.addEventListener("click",()=>{
     document.querySelector(".popup").style.display="flex"
+    
 })
 document.querySelector(".close").addEventListener("click",()=>{
     document.querySelector(".popup").style.display="none"
