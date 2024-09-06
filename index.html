@@ -16,15 +16,25 @@
                 <button class="add">Add</button>
             <div class="popup">
                 <div class="data">
-                    <input type="text" id="name" placeholder="Enter name">
+                <input type="text" id="name" placeholder="Enter name">
                 <input type="text" id="author" placeholder="Enter Author's name" >
                 <input type="number" id="pages" placeholder="Pages" >
-                <input type="text" id="status" placeholder="read or not">
-                <button class="submit">Submit</button>
-                <button class="close">Close</button>
+                <p>Did you read this book?</p>
+                <div>
+                    <form action="#">
+                        <input type="radio" id="yes" name="answer" value="Read">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="answer" value="not read">
+                        <label for="no">No</label>
+                    </form>
+                </div>
+                <div class="buttons">
+                     <button class="submit">Submit</button>
+                    <button class="close">Close</button></div>
                 </div>
                 
             </div>
+            
             <table bgcolor="black" width="500">
                 <tr bgcolor="gray">
                     <th width="100">ID</th>
@@ -39,7 +49,7 @@
                     <td>To Kill a Mockingbird</td>
                     <td>Harper Lee</td>
                     <td>295</td>
-                    <td>not read</td>
+                    <td><button class="read">Read</button></td>
                     <td><button class="delBtn">Remove</button></td>
                 </tr>
             </table>

@@ -1,23 +1,39 @@
-let btnAdd =document.querySelector(".submit")
+let btnSub =document.querySelector(".submit")
 let button=document.querySelector(".add")
 let table = document.querySelector("table")
 let nameInput=document.querySelector("#name")
 let authorInput=document.querySelector("#author")
 let pagesInput=document.querySelector("#pages")
-let statusInput=document.querySelector("#status")
+const myLibrary=[]
+let readBtn=document.querySelector(".read")
 let id=1;
 function removeBook(e){
-    id-=1;
      if(!e.target.classList.contains("delBtn")){
         return;
      }
+     id-=1;
      const btn=e.target
      btn.closest("tr").remove()
      let bookToRemove=myLibrary.find(book=>book.name===btn.closest("tr").children[1].textContent)
      myLibrary.splice(myLibrary.indexOf(bookToRemove),1)
 }
+function changeStatus(e){
+     if(!e.target.classList.contains("read")){
+        return;
+     }
+     const btn=e.target
+     if(btn.textContent==="Read"){
+        btn.textContent="not read"
+        console.log(btn.textContent)
+}
+    else{
+    btn.textContent="Read";
+    console.log(btn.textContent)
+}
+}
 table.addEventListener("click",removeBook)
-const myLibrary=[]
+table.addEventListener("click",changeStatus)
+
 function Book(name,author,pages,status){
     this.name=name;
     this.author=author;
@@ -27,13 +43,23 @@ function Book(name,author,pages,status){
 function addBookToLibrary(name,author,pages,status){
     let newBook=new Book(name,author,pages,status);
     myLibrary.push(newBook);
-    console.log("Book added successfully"); 
 }
-btnAdd.addEventListener("click", ()=>{
+function setStatus(){
+    myLibrary.forEach((book)=>{
+        if(book.status==="Read"){
+            readBtn.style="background-color:rgb(18, 245, 18)"
+        }
+        else{
+            readBtn.style="background-color:red"
+        }
+    })
+}
+btnSub.addEventListener("click", ()=>{
     id+=1
     let name=nameInput.value;
     let author=authorInput.value;
     let pages=parseInt(pagesInput.value);
+    let statusInput=document.querySelector('input[name="answer"]:checked');
     let status=statusInput.value;
     let template =
     `<tr bgcolor="lightgrey" align="center">
@@ -41,7 +67,7 @@ btnAdd.addEventListener("click", ()=>{
         <td>${name}</td>
         <td>${author}</td>
         <td>${pages}</td>
-        <td>${status}</td>
+        <td><button class="read">${status}</button></td>
         <td><button class="delBtn">Remove</button></td>`
         table.innerHTML+=template
         addBookToLibrary(name,author,pages,status)
